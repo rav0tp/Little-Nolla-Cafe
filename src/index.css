@@ -25,3 +25,16 @@
     @apply font-serif;
   }
 }
+
+@utility custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--color-gold) 20%, transparent);
+    border-radius: 10px;
+  }
+}

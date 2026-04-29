@@ -439,18 +439,18 @@ export default function App() {
                   initial={{ opacity: 0, scale: 0.9, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                  className="relative z-10 w-full max-w-4xl bg-cream rounded-[2rem] overflow-hidden shadow-2xl flex flex-col md:grid md:grid-cols-2"
+                  className="relative z-10 w-full max-w-4xl max-h-[85vh] md:max-h-[90vh] bg-cream rounded-[2rem] overflow-hidden shadow-2xl flex flex-col md:grid md:grid-cols-2"
                 >
-                  <div className="relative aspect-video md:aspect-auto">
+                  <div className="relative aspect-square md:aspect-auto h-64 md:h-auto shrink-0">
                     <img src={selectedItem.img} alt={selectedItem.name} className="w-full h-full object-cover" />
                     <button 
                       onClick={() => setSelectedItem(null)}
-                      className="absolute top-6 left-6 p-2 bg-espresso text-cream rounded-full md:hidden"
+                      className="absolute top-4 left-4 p-2 bg-espresso/80 backdrop-blur-sm text-cream rounded-full md:hidden"
                     >
                       <X className="w-5 h-5" />
                     </button>
                   </div>
-                  <div className="p-10 md:p-12 overflow-y-auto">
+                  <div className="p-8 md:p-12 overflow-y-auto custom-scrollbar flex flex-col">
                     <button 
                       onClick={() => setSelectedItem(null)}
                       className="hidden md:block absolute top-6 right-6 p-2 text-espresso hover:text-gold transition-colors"
@@ -458,28 +458,30 @@ export default function App() {
                       <X className="w-6 h-6" />
                     </button>
                     <span className="text-gold font-bold tracking-widest uppercase text-[10px] mb-4 block">Selection Profile</span>
-                    <h3 className="text-4xl md:text-5xl font-serif font-bold text-espresso mb-6">{selectedItem.name}</h3>
-                    <p className="text-lg text-espresso/70 leading-relaxed mb-8">
+                    <h3 className="text-3xl md:text-5xl font-serif font-bold text-espresso mb-4 md:mb-6">{selectedItem.name}</h3>
+                    <p className="text-base md:text-lg text-espresso/70 leading-relaxed mb-6 md:mb-8">
                       {selectedItem.longDesc}
                     </p>
                     <div className="space-y-6">
                       <div>
-                        <h5 className="font-bold text-espresso text-[11px] uppercase tracking-widest mb-4">Core Components</h5>
+                        <h5 className="font-bold text-espresso text-[11px] uppercase tracking-widest mb-3 md:mb-4">Core Components</h5>
                         <div className="flex flex-wrap gap-2">
                           {selectedItem.ingredients.map((ing, k) => (
-                            <span key={k} className="px-4 py-1.5 bg-espresso/5 text-espresso/60 text-xs rounded-full border border-espresso/10">
+                            <span key={k} className="px-3 py-1 md:px-4 md:py-1.5 bg-espresso/5 text-espresso/60 text-[10px] md:text-xs rounded-full border border-espresso/10">
                               {ing}
                             </span>
                           ))}
                         </div>
                       </div>
                     </div>
-                    <a 
-                      href={GOOGLE_MAPS_URL} target="_blank" rel="noopener noreferrer"
-                      className="mt-10 w-full py-4 bg-espresso text-cream font-bold rounded-full flex items-center justify-center gap-2 hover:bg-espresso-light transition-all"
-                    >
-                      Find it at Nolla <ArrowRight className="w-4 h-4" />
-                    </a>
+                    <div className="mt-auto pt-8">
+                      <a 
+                        href={GOOGLE_MAPS_URL} target="_blank" rel="noopener noreferrer"
+                        className="w-full py-4 bg-espresso text-cream font-bold rounded-full flex items-center justify-center gap-2 hover:bg-espresso-light transition-all shadow-lg shadow-espresso/10"
+                      >
+                        Find it at Nolla <ArrowRight className="w-4 h-4" />
+                      </a>
+                    </div>
                   </div>
                 </motion.div>
               </div>
@@ -605,7 +607,7 @@ export default function App() {
       <section id="find-us" className="py-32 bg-cream relative">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div className="order-2 lg:order-1 h-[600px] rounded-[2.5rem] overflow-hidden border-[1.5rem] border-white shadow-2xl relative shadow-espresso/10">
+            <div className="order-2 lg:order-1 h-[400px] md:h-[600px] rounded-[2.5rem] overflow-hidden border-[1.5rem] border-white shadow-2xl relative shadow-espresso/10">
               <iframe 
                 title="Little Nolla Cafe Official Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3386.7450125866!2d115.850401!3d-31.8845012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a32adea3a89a05f%3A0x6f9b8c0a8c0a8c0a!2sLittle+Nolla+Cafe!5e0!3m2!1sen!2sau!4v1714300000000!5m2!1sen!2sau" 
